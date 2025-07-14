@@ -1,0 +1,65 @@
+@use 'variables' as *;
+.navigation{
+    padding: 10px 20px;
+    border-bottom: 1px solid $colorBorder;
+    display: flex;
+    align-items: center;
+}
+
+.navigation__toggle{
+    margin-right: 15px;
+    &-link{
+        color: $colorLightText;
+        transition: 180ms ease;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        &:hover{
+            color: $colorDarkText;
+        }
+    }
+    &-icon{
+        font-size: 20px;
+        padding: 5px;
+    }
+}
+
+.navigation__search{
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    &-icon{
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translate(0, -50%);
+        color: $colorLightText;
+        pointer-events: none;
+        font-size: 20px;
+        
+    }
+    &-input{
+        padding: 10px 10px 10px 48px;
+        border-radius: 5px;
+        border: 1px solid $colorBorder;
+        width: 100%;
+    }
+}
+
+.navigation__icons{
+    margin-left: auto;
+    &-link{
+        color: $colorLightText;
+        text-decoration: none;
+        transition: 180ms ease;
+        display: flex;
+        align-items: center;
+        &:hover{
+            color: $colorDarkText;
+        }
+    }
+    &-icon{
+        font-size: 20px;
+        padding: 5px;
+    }
+}

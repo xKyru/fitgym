@@ -1,0 +1,23 @@
+@use 'variables' as *;
+
+*{
+    box-sizing: border-box;
+    &:focus{
+        outline: none;
+    }
+}
+
+body{
+    font-family: "Geist", sans-serif;
+    color: $colorDarkText;
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin-top: 0;
+}
+
+fieldset{
+    border: 1px solid $colorBorder;
+    border-radius: 5px;
+    padding-top: 20px;
+}

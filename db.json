@@ -1,0 +1,309 @@
+{
+    "members": [
+        {
+            "id": 1,
+            "nombre": "Ana García",
+            "email": "ana@email.com",
+            "telefono": "4491234567",
+            "direccion": "Calle Principal 123, Col. Centro",
+            "nacimiento": "1990-05-15",
+            "emergenciaNombre": "Carlos García",
+            "emergenciaNumero": "4495647890",
+            "imagenPerfil": "https://ejemplo.com/fotos/ana.jpg",
+            "plan": 2,
+            "estado": "Activo",
+            "fechaRegistro": "2024-01-15",
+            "ultimoPago": "2025-01-01",
+            "siguientePago": "2025-02-01"
+        },
+        {
+            "id": 2,
+            "nombre": "Luis Martínez",
+            "email": "luis.m@empresa.com",
+            "telefono": "4492345678",
+            "direccion": "Avenida Revolución 456, Col. Moderna",
+            "nacimiento": "1988-07-22",
+            "emergenciaNombre": "María Martínez",
+            "emergenciaNumero": "4497654321",
+            "imagenPerfil": "https://ejemplo.com/fotos/luis.jpg",
+            "plan": 1,
+            "estado": "Activo",
+            "fechaRegistro": "2024-02-20",
+            "ultimoPago": "2025-01-05",
+            "siguientePago": "2025-02-05"
+        },
+        {
+            "id": 3,
+            "nombre": "María Rodríguez",
+            "email": "maria.rdz@gmail.com",
+            "telefono": "4493456789",
+            "direccion": "Calle Juárez 789, Col. Histórica",
+            "nacimiento": "1992-11-30",
+            "emergenciaNombre": "Pedro Rodríguez",
+            "emergenciaNumero": "4498765432",
+            "imagenPerfil": "https://ejemplo.com/fotos/maria.jpg",
+            "plan": 2,
+            "estado": "Inactivo",
+            "fechaRegistro": "2023-11-10",
+            "ultimoPago": "2024-12-15",
+            "siguientePago": null
+        },
+        {
+            "id": 4,
+            "nombre": "Carlos Sánchez",
+            "email": "carlos.s@outlook.com",
+            "telefono": "4494567890",
+            "direccion": "Boulevard Universidad 101, Col. Estudiantil",
+            "nacimiento": "1985-03-18",
+            "emergenciaNombre": "Laura Sánchez",
+            "emergenciaNumero": "4499876543",
+            "imagenPerfil": "https://ejemplo.com/fotos/carlos.jpg",
+            "plan": 3,
+            "estado": "Activo",
+            "fechaRegistro": "2024-03-05",
+            "ultimoPago": "2025-01-10",
+            "siguientePago": "2025-02-10"
+        },
+        {
+            "id": 5,
+            "nombre": "Sofía López",
+            "email": "sofia.lp@yahoo.com",
+            "telefono": "4495678901",
+            "direccion": "Callejón del Arte 234, Col. Bohemia",
+            "nacimiento": "1995-09-05",
+            "emergenciaNombre": "Ricardo López",
+            "emergenciaNumero": "4490987654",
+            "imagenPerfil": "https://ejemplo.com/fotos/sofia.jpg",
+            "plan": 1,
+            "estado": "Pendiente",
+            "fechaRegistro": "2025-01-12",
+            "ultimoPago": null,
+            "siguientePago": null
+        },
+        {
+            "id": 6,
+            "nombre": "Jorge Hernández",
+            "email": "jorge.hdz@empresa.com",
+            "telefono": "4496789012",
+            "direccion": "Avenida Tecnológico 567, Col. Innovación",
+            "nacimiento": "1987-12-12",
+            "emergenciaNombre": "Elena Hernández",
+            "emergenciaNumero": "4491098765",
+            "imagenPerfil": "https://ejemplo.com/fotos/jorge.jpg",
+            "plan": 2,
+            "estado": "Activo",
+            "fechaRegistro": "2023-09-18",
+            "ultimoPago": "2025-01-15",
+            "siguientePago": "2025-02-15"
+        },
+        {
+            "id": 7,
+            "nombre": "Patricia Ramírez",
+            "email": "paty.rmz@gmail.com",
+            "telefono": "4497890123",
+            "direccion": "Calle Primavera 890, Col. Jardines",
+            "nacimiento": "1993-04-25",
+            "emergenciaNombre": "Juan Ramírez",
+            "emergenciaNumero": "4492109876",
+            "imagenPerfil": "https://ejemplo.com/fotos/patricia.jpg",
+            "plan": 3,
+            "estado": "Activo",
+            "fechaRegistro": "2024-05-22",
+            "ultimoPago": "2025-01-20",
+            "siguientePago": "2025-02-20"
+        },
+        {
+            "id": 8,
+            "nombre": "Fernando Torres",
+            "email": "fer.torres@outlook.com",
+            "telefono": "4498901234",
+            "direccion": "Paseo de los Deportes 345, Col. Atlética",
+            "nacimiento": "1991-08-08",
+            "emergenciaNombre": "Silvia Torres",
+            "emergenciaNumero": "4493210987",
+            "imagenPerfil": "https://ejemplo.com/fotos/fernando.jpg",
+            "plan": 1,
+            "estado": "Inactivo",
+            "fechaRegistro": "2024-07-30",
+            "ultimoPago": "2024-12-01",
+            "siguientePago": null
+        },
+        {
+            "id": 9,
+            "nombre": "Adriana Morales",
+            "email": "adri.mrl@email.com",
+            "telefono": "4499012345",
+            "direccion": "Calle del Comercio 678, Col. Mercantil",
+            "nacimiento": "1989-01-20",
+            "emergenciaNombre": "José Morales",
+            "emergenciaNumero": "4494321098",
+            "imagenPerfil": "https://ejemplo.com/fotos/adriana.jpg",
+            "plan": 2,
+            "estado": "Activo",
+            "fechaRegistro": "2024-04-10",
+            "ultimoPago": "2025-01-25",
+            "siguientePago": "2025-02-25"
+        },
+        {
+            "id": 10,
+            "nombre": "Roberto Jiménez",
+            "email": "roberto.j@empresa.com",
+            "telefono": "4490123456",
+            "direccion": "Avenida Central 901, Col. Principal",
+            "nacimiento": "1986-06-14",
+            "emergenciaNombre": "Lucía Jiménez",
+            "emergenciaNumero": "4495432109",
+            "imagenPerfil": "https://ejemplo.com/fotos/roberto.jpg",
+            "plan": 1,
+            "estado": "Activo",
+            "fechaRegistro": "2024-06-15",
+            "ultimoPago": "2025-01-30",
+            "siguientePago": "2025-02-28"
+        }
+    ],
+    "payments": [
+        {
+            "id": 1,
+            "memberId": 1,
+            "amount": 1200.00,
+            "date": "2025-01-01",
+            "method": "Tarjeta de crédito",
+            "status": "Completado",
+            "invoiceNumber": "FAC-001-2025"
+        },
+        {
+            "id": 2,
+            "memberId": 1,
+            "amount": 1200.00,
+            "date": "2024-12-01",
+            "method": "Transferencia bancaria",
+            "status": "Completado",
+            "invoiceNumber": "FAC-012-2024"
+        },
+        {
+            "id": 3,
+            "memberId": 2,
+            "amount": 800.00,
+            "date": "2025-01-05",
+            "method": "Efectivo",
+            "status": "Completado",
+            "invoiceNumber": "FAC-002-2025"
+        },
+        {
+            "id": 4,
+            "memberId": 3,
+            "amount": 1200.00,
+            "date": "2024-12-15",
+            "method": "Tarjeta de débito",
+            "status": "Completado",
+            "invoiceNumber": "FAC-011-2024"
+        },
+        {
+            "id": 5,
+            "memberId": 3,
+            "amount": 1200.00,
+            "date": "2024-11-15",
+            "method": "Tarjeta de crédito",
+            "status": "Completado",
+            "invoiceNumber": "FAC-010-2024"
+        },
+        {
+            "id": 6,
+            "memberId": 4,
+            "amount": 1500.00,
+            "date": "2025-01-10",
+            "method": "Transferencia bancaria",
+            "status": "Completado",
+            "invoiceNumber": "FAC-003-2025"
+        },
+        {
+            "id": 7,
+            "memberId": 4,
+            "amount": 1500.00,
+            "date": "2024-12-10",
+            "method": "Efectivo",
+            "status": "Completado",
+            "invoiceNumber": "FAC-013-2024"
+        },
+        {
+            "id": 8,
+            "memberId": 6,
+            "amount": 1200.00,
+            "date": "2025-01-15",
+            "method": "Tarjeta de crédito",
+            "status": "Completado",
+            "invoiceNumber": "FAC-004-2025"
+        },
+        {
+            "id": 9,
+            "memberId": 6,
+            "amount": 1200.00,
+            "date": "2024-12-15",
+            "method": "Tarjeta de crédito",
+            "status": "Completado",
+            "invoiceNumber": "FAC-014-2024"
+        },
+        {
+            "id": 10,
+            "memberId": 7,
+            "amount": 1500.00,
+            "date": "2025-01-20",
+            "method": "Transferencia bancaria",
+            "status": "Completado",
+            "invoiceNumber": "FAC-005-2025"
+        },
+        {
+            "id": 11,
+            "memberId": 8,
+            "amount": 800.00,
+            "date": "2024-12-01",
+            "method": "Efectivo",
+            "status": "Completado",
+            "invoiceNumber": "FAC-015-2024"
+        },
+        {
+            "id": 12,
+            "memberId": 9,
+            "amount": 1200.00,
+            "date": "2025-01-25",
+            "method": "Tarjeta de débito",
+            "status": "Completado",
+            "invoiceNumber": "FAC-006-2025"
+        },
+        {
+            "id": 13,
+            "memberId": 9,
+            "amount": 1200.00,
+            "date": "2024-12-25",
+            "method": "Tarjeta de crédito",
+            "status": "Completado",
+            "invoiceNumber": "FAC-016-2024"
+        },
+        {
+            "id": 14,
+            "memberId": 10,
+            "amount": 800.00,
+            "date": "2025-01-30",
+            "method": "Efectivo",
+            "status": "Completado",
+            "invoiceNumber": "FAC-007-2025"
+        }
+    ],
+    "plans": [
+        {
+            "id": 1,
+            "plan": "Básico",
+            "price": 800
+        },
+                {
+            "id": 2,
+            "plan": "Premium",
+            "price": 1200
+        }
+        ,        {
+            "id": 3,
+            "plan": "Familiar",
+            "price": 1500
+        }
+    ]
+}

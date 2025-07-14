@@ -1,0 +1,49 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+
+.dashboard__cards{
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 20px;
+    @include minWidth(768){
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include minWidth(1200){
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}
+
+.dashboard__card{
+    border: 1px solid $colorBorder;
+    padding: 20px;
+    margin: 0;
+    list-style: none;
+    border-radius: 10px;
+    position: relative;
+    &-title{
+        font-size: 16px;
+        margin: 0;
+        margin-right: 30px;
+    }
+    &-icon{
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-20px, 20px);
+        font-size: 20px;
+        color: $colorLightText;
+    }
+    &-qty{
+        font-size: 26px;
+        font-weight: 700;
+        margin: 8px 0;
+    }
+    &-desc{
+        font-size: 14px;
+        color: $colorLightText;
+        margin: 0;
+    }
+}

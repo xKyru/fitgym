@@ -1,0 +1,108 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.profile{
+    display: flex;
+    flex-direction: column;
+    @include minWidth(1200){
+        flex-direction: row;
+        gap: 30px;
+    }
+    &>div{
+        padding: 20px;
+        border: 1px solid $colorBorder;
+        border-radius: 10px;
+        h2{
+            font-weight: 600;
+        }
+    }
+}
+
+.profile__personal{
+    @include minWidth(1200){
+        width: calc(35% - 15px);
+    }
+    &-image{
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        display: block;
+        background: #eee;
+        border-radius: 50%;
+    }
+    &-profile{
+        border-bottom: 1px solid $colorBorder;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    &-name{
+        text-align: center;
+        font-size: 20px;
+        font-weight: 700;
+        margin-top: 15px;
+    }
+    &-status{
+        text-align: center;
+        span{
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 5px;
+            display: inline-block;
+        }
+        &--activo span{
+            background: $colorDarkText;
+        }
+        &--inactivo span{
+            background: $colorError;
+        }
+        &--pendiente span{
+            color: $colorDarkText;
+            font-size: 14px;
+        }
+    }
+    &-group{
+        display: flex;
+        align-items: center;
+        &:not(:last-child){
+            margin-bottom: 10px;
+        }
+    }
+    &-icon{
+        margin-right: 5px;
+        display: flex;
+        align-items: center;
+        span{
+            font-size: 20px;
+            color: $colorLightText;
+        }
+    }
+    &-data{
+        font-size: 15px;
+    }
+}
+
+.profile__suscription{
+    @include minWidth(1200){
+        width: calc(65% - 15px);
+    }
+    &-groups{
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 50px;
+    }
+    &-group{
+        width: calc(50% - 25px);
+    }
+    &-title{
+        color: $colorLightText;
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+    &-content{
+        margin-top: 5px;
+    }
+}

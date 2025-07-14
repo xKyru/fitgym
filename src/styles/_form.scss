@@ -1,0 +1,84 @@
+@use 'mixins' as *;
+@use 'variables' as *;
+
+.form{
+    column-count: 2;
+    column-gap: 30px;
+    column-width: 250px;
+    &__group{
+        break-inside: avoid;
+        border-color: $colorBorder;
+        &:not(:last-child){
+            margin-bottom: 20px;
+        }
+    }
+    &__subgroup{
+        &:not(:last-child){
+            margin-bottom: 20px;
+        }
+    }
+        legend{
+        font-weight: 700;
+        font-size: 14px;
+    }
+}
+
+
+.form__field{
+    &-label{
+        display: block;
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    &-input{
+        padding: 10px 15px;
+        border: 1px solid $colorBorder;
+        border-radius: 5px;
+        width: 100%;
+    }
+}
+
+.form{
+    &.form-membership{
+        column-count: unset;
+        column-width: auto;
+        .form__field-input{
+            border: none;
+            padding: 0;
+        }
+    }
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    button{
+        display: flex;
+        align-items: center;
+        border: none;
+        padding: 10px 20px;
+        font-size: 14px;
+        border-radius:10px;
+        cursor: pointer;
+        transition: ease 180ms;
+        text-decoration: none;
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+    &__button-icon{
+        margin-right: 10px;
+        font-size: 18px;
+    }
+    &__button-send{
+        background: $colorDarkText;
+        color: #fff;
+        margin-right: 10px;
+    }
+    &__button-cancel{
+        border: 1px solid $colorBorder!important;
+        background: none;
+    }
+}

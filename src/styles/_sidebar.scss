@@ -1,0 +1,56 @@
+@use 'variables' as *;
+
+.sidebar__logo{
+    display: flex;
+    align-items: center;
+    &-icon{
+        background-color: $colorPrimary;
+        color: #fff;
+        font-size: 34px;
+        padding: 10px;
+        border-radius: 10px;
+        margin-right: 10px;
+    }
+    &-title{
+    font-size: 20px;
+    margin: 0;
+    }
+    &-subtitle{
+        font-size: 14px;
+        margin: 0;
+        font-weight: 400;
+        color: $colorLightText;
+    }
+}
+
+.sidebar__content{
+    margin-top: 30px;
+}
+
+.sidebar__nav{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    &-link{
+        color: $colorLightText;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        padding: 8px 0;
+        transition: 180ms ease;
+        &--active, &:hover{
+            color: $colorDarkText;
+        }
+    }
+    &-icon{
+        margin-right: 8px;
+        font-size: 20px;
+    }
+}
+.sidebar__footer{
+    margin-top: auto;
+    &-copyright{
+        color: $colorLightText;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,14 @@
+.filters{
+    &-wrap{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navigation__search{
+        max-width: none;
+        margin-right: 20px;
+    }
+    &-filters{
+        min-width: 200px;
+    }
+}

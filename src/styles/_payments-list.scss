@@ -1,0 +1,59 @@
+@use 'variables' as *;
+
+.pagos-lista__table{
+    border-collapse: collapse;
+    width: 100%;
+    &-tr:last-child td{
+        border-bottom: none;
+    }
+    & th{
+        padding: 20px 0;
+        text-align: left;
+        border-bottom: 1px solid $colorBorder;
+        color: $colorLightText;
+    }
+    & td{
+        padding: 20px 0;
+        border-bottom: 1px solid $colorBorder;
+    }
+    &-actions{
+        display: flex;
+        a{
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: $colorLightText;
+            transition: ease 180ms;
+            &:hover{
+                color: $colorDarkText;
+            }
+            &:not(:last-of-type){
+                margin-right: 10px;
+            }
+        }
+        & span{
+            font-size: 20px;
+        }
+    }
+    &-plan{
+        span{
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        &--completado span{
+            background: $colorDarkText;
+
+        }
+        &--fallido span{
+            background: $colorError;
+        }
+        &--pendiente span{
+            color: $colorDarkText;
+            font-size: 14px;
+        }
+    }
+}
