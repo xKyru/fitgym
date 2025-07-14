@@ -59,8 +59,11 @@ export const MemberForm = ({ mode }) => {
         }
     }, [member]);
 
-    if (membersLoading) return <div>Cargando...</div>;
-    if (membersError) return <div>Error: {membersError.message}</div>;
+    if(mode == "edit"){
+        if (membersLoading) return <div>Cargando...</div>;
+        if (membersError) return <div>Error: {membersError.message}</div>;
+    }
+
 
     const handleInputChange = (e) => {
         const { id, value } = e.target;
