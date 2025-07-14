@@ -3,8 +3,10 @@ import './Index.scss';
 import { MembersList } from "../components/MembersList";
 
 export const IndexView = () => {
- 
+
   return (
+
+    
     <>
       <ul className="dashboard__cards">
         <Card

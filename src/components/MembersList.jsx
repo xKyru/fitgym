@@ -3,8 +3,8 @@ import useFetch from "../hooks/useFetch"
 
 export const MembersList = ({viewMember, editMember, deleteMember}) => {
 
-    const { data, loading, error } = useFetch('http://localhost:3001/members');
-    const { data: plans, loading: plansLoading, error: plansError } = useFetch('http://localhost:3001/plans');
+    const { data, loading, error } = useFetch(`${import.meta.env.API_BASE_URL}/members`);
+    const { data: plans, loading: plansLoading, error: plansError } = useFetch(`${import.meta.env.VITE_API_BASE_URL}/plans`);
 
     if (loading || plansLoading) return <div>Cargando...</div>;
     if (error) return <div>Error: {error.message}</div>;

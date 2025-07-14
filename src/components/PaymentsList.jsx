@@ -2,9 +2,9 @@ import useFetch from "../hooks/useFetch"
 
 export const PaymentsList = () => {
 
-    const { data: payment, loading: paymentsLoading, error: paymentsError } = useFetch('http://localhost:3001/payments');
-    const { data: members, loading: membersLoading, error: membersError } = useFetch('http://localhost:3001/members');
-    const { data: plans, loading: plansLoading, error: plansError } = useFetch('http://localhost:3001/plans');
+    const { data: payment, loading: paymentsLoading, error: paymentsError } = useFetch(`${import.meta.env.VITE_API_BASE_URL}/payments`);
+    const { data: members, loading: membersLoading, error: membersError } = useFetch(`${import.meta.env.VITE_API_BASE_URL}/members`);
+    const { data: plans, loading: plansLoading, error: plansError } = useFetch(`${import.meta.env.VITE_API_BASE_URL}/plans`);
 
     if (paymentsLoading || membersLoading || plansLoading) return <div>Cargando...</div>;
     if (paymentsError) return <div>Error: {paymentsError.message}</div>;
