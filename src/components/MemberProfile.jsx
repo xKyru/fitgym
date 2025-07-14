@@ -17,7 +17,7 @@ export const MemberProfile = ({
     siguientePago
   }
 }) => {
-  const { data: plans, loading: plansLoading, error: plansError } = useFetch(`${import.meta.env.VITE_API_BASE_URL}/plans`);
+  const { data: plans, loading: plansLoading, error: plansError } = useFetch('http://localhost:3001/plans');
 
   console.log(plans[0]);
   
