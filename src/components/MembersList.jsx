@@ -7,8 +7,8 @@ export const MembersList = ({viewMember, editMember, deleteMember}) => {
     const { data: plans, loading: plansLoading, error: plansError } = useFetch('http://localhost:3001/plans');
 
     if (loading || plansLoading) return <div>Cargando...</div>;
-    if (error) return <div>Error: {error.message}</div>;
-    if (plansError) return <div>Error: {plansError.message}</div>;
+    if (error) return <div>Error: {error}</div>;
+    if (plansError) return <div>Error: {plansError}</div>;
 
     return (
         <>

@@ -7,9 +7,9 @@ export const PaymentsList = () => {
     const { data: plans, loading: plansLoading, error: plansError } = useFetch('http://localhost:3001/plans');
 
     if (paymentsLoading || membersLoading || plansLoading) return <div>Cargando...</div>;
-    if (paymentsError) return <div>Error: {paymentsError.message}</div>;
-    if (membersError) return <div>Error: {membersError.message}</div>;
-    if (plansError) return <div>Error: {plansError.message}</div>;
+    if (paymentsError) return <div>Error: {paymentsError}</div>;
+    if (membersError) return <div>Error: {membersError}</div>;
+    if (plansError) return <div>Error: {plansError}</div>;
 
     const findMemberById = id => {
         if(!members || !Array.isArray(members)) return null;
