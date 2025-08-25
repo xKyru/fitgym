@@ -1,4 +1,6 @@
-import useFetch from "../hooks/useFetch"
+import useFetch from "../hooks/useFetch";
+
+import profileImg from '../assets/img/profile.png';
 
 export const MemberProfile = ({
   member: {
@@ -28,7 +30,7 @@ export const MemberProfile = ({
           <h2>Información Personal</h2>
           <div className="profile__personal-card">
             <div className="profile__personal-profile">
-              <img className="profile__personal-image" src={'/src/assets/img/profile.png'} />
+              <img className="profile__personal-image" src={profileImg} />
               <div className="profile__personal-name">
                 {nombre}
               </div>
