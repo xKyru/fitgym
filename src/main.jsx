@@ -3,11 +3,15 @@ import { createRoot } from 'react-dom/client'
 import './styles/main.scss';
 import AppRouter from './router';
 
+import { SearchProvider } from './context/SearchContext';
+
 const rootElement = document.getElementById('root');
 if (rootElement) {
   createRoot(rootElement).render(
     <StrictMode>
-      <AppRouter />
+      <SearchProvider>
+        <AppRouter />
+      </SearchProvider>
     </StrictMode>,
   );
 }

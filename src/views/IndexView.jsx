@@ -1,39 +1,67 @@
 import { Card } from "../components/Card"
 import './Index.scss';
 import { MembersList } from "../components/MembersList";
+import { useEffect, useState } from "react";
 
 export const IndexView = () => {
 
+  const [facets, setFacets] = useState({
+    total: 0,
+    inactivo: 0,
+    activo: 0
+  });
+
+  const [revenue, setRevenue] = useState(0);
+
+  useEffect(() => {
+    const fetchFacets = async () => {
+      try {
+        const resFacets = await fetch(`${import.meta.env.VITE_API_URL}/members/search/facets`);
+        const dataFacets = await resFacets.json();
+        setFacets(dataFacets);
+
+        const resRevenue = await fetch(`${import.meta.env.VITE_API_URL}/payments/revenue/total`);
+        const dataRevenue = await resRevenue.json();
+        setRevenue(dataRevenue);
+
+      } catch (error) {
+        console.log("Error fetching facets:", error);
+      }
+    }
+    fetchFacets();
+  }, []);
+
   return (
 
-    
+
+
     <>
       <ul className="dashboard__cards">
         <Card
           title="Total Miembros"
           icon="group"
-          quantity={245}
+          quantity={facets.total}
           currency={false}
           description="+12% desde el mes pasado"
         ></Card>
         <Card
           title="Miembros Activos"
           icon="trending_up"
-          quantity={198}
+          quantity={facets.activo}
           currency={false}
           description="80.8% del total"
         ></Card>
         <Card
           title="Ingresos del Mes"
           icon="calendar_today"
-          quantity={12450}
+          quantity={revenue}
           currency={true}
           description="+8% desde el mes pasado"
         ></Card>
         <Card
           title="Suscripciones Vencidas"
           icon="warning"
-          quantity={23}
+          quantity={facets.inactivo}
           currency={false}
           description="Requieren atención"
         ></Card>

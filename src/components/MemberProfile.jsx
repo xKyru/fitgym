@@ -9,18 +9,15 @@ export const MemberProfile = ({
     nacimiento,
     emergenciaNombre,
     emergenciaNumero,
-    imagenPerfil,
-    plan,
+    planId,
     estado,
     fechaRegistro,
     ultimoPago,
     siguientePago
   }
 }) => {
-  const { data: plans, loading: plansLoading, error: plansError } = useFetch('http://localhost:3001/plans');
-
-  console.log(plans[0]);
-  
+  const { data: plans, loading: plansLoading, error: plansError } = useFetch(`${import.meta.env.VITE_API_URL}/plans`);
+ 
 
   if (plansLoading) return <div>Cargando...</div>;
   if (plansError) return <div>Error: {plansError.message}</div>;
@@ -95,7 +92,7 @@ export const MemberProfile = ({
                 Plan Actual
               </h3>
               <p className="profile__suscription-content">
-                {plans[plan - 1].plan || plan}
+                {plans[planId - 1].name || planId}
               </p>
             </div>
             <div className="profile__suscription-group">

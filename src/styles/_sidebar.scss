@@ -1,5 +1,12 @@
 @use 'variables' as *;
 
+.sidebar__header{
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
 .sidebar__logo{
     display: flex;
     align-items: center;

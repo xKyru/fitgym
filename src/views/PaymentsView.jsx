@@ -43,10 +43,10 @@ export const PaymentsView = () => {
           description="+5% desde el mes pasado"
         ></Card>
       </ul>
-      <Filter
+      {/* <Filter
         SearchBarPlaceholder={"Buscar Pagos..."}
         options={options}
-      ></Filter>
+      ></Filter> */}
       <section className="section">
         <h2 className="section__title">Historial de Pagos</h2>
         <h3 className="section__subtitle">Registro completo de todos los pagos realizados</h3>

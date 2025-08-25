@@ -8,7 +8,6 @@ import { MemberView } from "./views/MemberView";
 import { MemberEditView } from "./views/MemberEditView";
 
 
-
 const AppRouter = () => {
     return (
         <BrowserRouter>
@@ -32,28 +31,28 @@ const AppRouter = () => {
                             headerSubtitle={"Administra todos los miembros del gimnasio"}
                             buttonIcon={"person_add"}
                             buttonText={"Nuevo Miembro"}
-                            buttonLink={"/member/new"}
+                            buttonLink={"/members/new"}
                         />
                     }
                 >
                     <Route index element={<MembersView />}></Route>
                 </Route>
                 <Route
-                    path="/member/:id"
+                    path="/members/:id"
                     element={
                         <Layout 
                             headerTitle={"Perfil del miembro"}
                             headerSubtitle={"Información detallada y historial del miembro"}
                             buttonIcon={"edit_square"}
                             buttonText={"Editar"}
-                            buttonLink={(id) => `/member/${id}/edit`}                        
+                            buttonLink={(id) => `/members/${id}/edit`}                        
                         />
                     }
                 >
                     <Route index element={<MemberView />}></Route>
                 </Route>                
                 <Route
-                    path="/member/new"
+                    path="/members/new"
                     element={
                         <Layout 
                             headerTitle={"Nuevo Miembro"}
@@ -64,7 +63,7 @@ const AppRouter = () => {
                     <Route index element={<MemberNewView />}></Route>
                 </Route>
                 <Route
-                    path="/member/:id/edit"
+                    path="/members/:id/edit"
                     element={
                         <Layout 
                             headerTitle={"Editar Miembro"}

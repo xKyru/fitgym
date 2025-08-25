@@ -51,11 +51,9 @@
 }
 
 .buttons{
-    display: flex;
-    align-items: center;
     margin-top: 30px;
     button{
-        display: flex;
+        display: inline-flex;
         align-items: center;
         border: none;
         padding: 10px 20px;
@@ -80,5 +78,13 @@
     &__button-cancel{
         border: 1px solid $colorBorder!important;
         background: none;
+    }
+    &__button-delete{
+        color: $colorError;
+        border: none!important;
+        background: none!important;
+        display: block!important;
+        max-width: max-content;
+        margin-top: 10px;
     }
 }
