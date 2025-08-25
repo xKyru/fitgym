@@ -25,15 +25,23 @@
             text-decoration: none;
             color: $colorLightText;
             transition: ease 180ms;
+            margin-right: 10px;
             &:hover{
                 color: $colorDarkText;
-            }
-            &:not(:last-of-type){
-                margin-right: 10px;
             }
         }
         & span{
             font-size: 20px;
+        }
+        & .action__delete{
+            border: none;
+            color: $colorLightText;
+            background: none;
+            transition: ease 180ms;
+            cursor: pointer;
+            &:hover{
+                color: $colorDarkText;
+            }
         }
     }
     &-plan{

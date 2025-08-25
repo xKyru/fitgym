@@ -1,9 +1,11 @@
 import Select from "react-select";
 import useFetch from "../hooks/useFetch";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export const MemberForm = ({ mode }) => {
+
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         nombre: '',
@@ -28,7 +30,7 @@ export const MemberForm = ({ mode }) => {
     ]
 
     const memberId = useParams().id || null;
-    const { data: members, loading: membersLoading, error: membersError } = useFetch('http://localhost:3001/members');
+    const { data: members, loading: membersLoading, error: membersError } = useFetch(`${import.meta.env.VITE_API_URL}/members`);
 
     const findMemberById = id => {
         if (!members || !Array.isArray(members)) return null;
@@ -39,8 +41,7 @@ export const MemberForm = ({ mode }) => {
 
     useEffect(() => {
         if (mode === 'edit' && member) {
-            console.log(member);
-            
+
             setFormData({
                 nombre: member.nombre,
                 email: member.email,
@@ -50,7 +51,7 @@ export const MemberForm = ({ mode }) => {
                 emergenciaNombre: member.emergenciaNombre,
                 emergenciaNumero: member.emergenciaNumero,
                 imagenPerfil: member.imagenPerfil,
-                plan: member.plan,
+                planId: member.planId,
                 estado: member.estado,
                 fechaRegistro: member.fechaRegistro,
                 ultimoPago: member.ultimoPago,
@@ -59,25 +60,108 @@ export const MemberForm = ({ mode }) => {
         }
     }, [member]);
 
-    if(mode == "edit"){
+    if (mode == "edit") {
         if (membersLoading) return <div>Cargando...</div>;
         if (membersError) return <div>Error: {membersError.message}</div>;
     }
 
+    const validateForm = () => {
+        const errors = {};
+        if (!formData.nombre.trim()) errors.nombre = "El nombre es obligatorio";
+        if (!formData.email.trim()) errors.email = "El email es obligatorio";
+        if (!formData.telefono.trim()) errors.nombre = "El teléfono es obligatorio";
+        if (!formData.direccion.trim()) errors.nombre = "La dirección es obligatoria";
+        if (!formData.nacimiento.trim()) errors.nombre = "La fecha de nacimiento es obligatoria";
+        if (!formData.emergenciaNombre.trim()) errors.nombre = "El contacto de emergencia es obligatorio";
+        if (!formData.emergenciaNumero.trim()) errors.nombre = "El número de emergencia es obligatorio";
+        return errors;
+    }
+
 
     const handleInputChange = (e) => {
-        const { id, value } = e.target;
+        const { name, value } = e.target;
         setFormData(prev => ({
             ...prev,
-            [id]: value
+            [name]: value
         }));
     };
 
     const handleSelectChange = (selectedOption) => {
         setFormData(prev => ({
             ...prev,
-            plan: selectedOption.value
+            planId: selectedOption.value
         }));
+
+    }
+
+    const handleSaveClick = async () => {
+        const errors = validateForm();
+        if (Object.keys(errors).length > 0) {
+            alert(Object.values(errors).join("\n"));
+            return;
+        }
+
+        try {
+            const url = mode === "edit"
+                ? `${import.meta.env.VITE_API_URL}/members/${memberId}`
+                : `${import.meta.env.VITE_API_URL}/members`;
+
+            const method = mode === "edit" ? "PUT" : "POST";
+
+            const response = await fetch(url, {
+                method,
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) {
+                throw new Error("Error al guardar miembro");
+            }
+
+            const savedMember = await response.json();
+
+            alert(mode === "edit" ? "Miembro actualizado correctamente" : "Miembro guardado correctamente");
+
+            navigate(`/members/${savedMember.id}`);
+
+        } catch (error) {
+            alert("Hubo un error: " + error.message);
+        }
+
+    }
+
+
+    const handleCancelClick = () => {
+        if (mode === "edit") {
+            navigate(`/members/${memberId}`);
+        } else {
+            navigate("/");
+        }
+    }
+
+    const handleDeleteButton = async () => {
+        const confirmation = confirm("¿Realmente quieres borrar este registro?");
+        if (confirmation) {
+            try {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/members/${memberId}`, {
+                    method: "DELETE"
+                });
+
+                if (!response.ok) {
+                    throw new Error("Error al eliminar el miembro");
+                }
+
+                alert("El Miembro ha sido eliminado");
+
+                navigate("/");
+
+            } catch (error) {
+                alert("Hubo un error: " + error.message);
+            }
+        }
+
     }
 
     return (
@@ -87,8 +171,9 @@ export const MemberForm = ({ mode }) => {
                 <h3 className="section__subtitle">Datos básicos del miembro</h3>
                 <form action="" className="form form-personal">
                     <div className="form__group">
-                        <label htmlFor="name" className="form__field-label">Nombre Completo</label>
+                        <label htmlFor="name" className="form__field-label">Nombre Completo*</label>
                         <input
+                            name="nombre"
                             id="name"
                             className="form__field-input"
                             placeholder="Ej. Ana García López"
@@ -97,8 +182,9 @@ export const MemberForm = ({ mode }) => {
                         />
                     </div>
                     <div className="form__group">
-                        <label htmlFor="number" className="form__field-label">Teléfono</label>
+                        <label htmlFor="number" className="form__field-label">Teléfono*</label>
                         <input
+                            name="telefono"
                             id="number"
                             className="form__field-input"
                             placeholder="4491234567"
@@ -107,8 +193,9 @@ export const MemberForm = ({ mode }) => {
                         />
                     </div>
                     <div className="form__group">
-                        <label htmlFor="address" className="form__field-label">Dirección</label>
+                        <label htmlFor="address" className="form__field-label">Dirección*</label>
                         <input
+                            name="direccion"
                             id="address"
                             className="form__field-input"
                             placeholder="Calle Principal 123, Col. Centro"
@@ -117,8 +204,9 @@ export const MemberForm = ({ mode }) => {
                         />
                     </div>
                     <div className="form__group">
-                        <label htmlFor="email" className="form__field-label">Email</label>
+                        <label htmlFor="email" className="form__field-label">Email*</label>
                         <input
+                            name="email"
                             id="email"
                             className="form__field-input" type="email"
                             placeholder="ana@email.com"
@@ -127,8 +215,9 @@ export const MemberForm = ({ mode }) => {
                         />
                     </div>
                     <div className="form__group">
-                        <label htmlFor="born-date" className="form__field-label">Fecha de Nacimiento</label>
+                        <label htmlFor="born-date" className="form__field-label">Fecha de Nacimiento*</label>
                         <input
+                            name="nacimiento"
                             id="born-date"
                             className="form__field-input"
                             type="date"
@@ -139,8 +228,9 @@ export const MemberForm = ({ mode }) => {
                     <fieldset className="form__group">
                         <legend>Contacto de Emergencia</legend>
                         <div className="form__subgroup">
-                            <label htmlFor="emergency-name" className="form__field-label">Nombre</label>
+                            <label htmlFor="emergency-name" className="form__field-label">Nombre*</label>
                             <input
+                                name="emergenciaNombre"
                                 id="emergency-name"
                                 className="form__field-input"
                                 placeholder="Ej. Javier García"
@@ -149,8 +239,9 @@ export const MemberForm = ({ mode }) => {
                             />
                         </div>
                         <div className="form__subgroup">
-                            <label htmlFor="emergency-number" className="form__field-label">Teléfono</label>
+                            <label htmlFor="emergency-number" className="form__field-label">Teléfono*</label>
                             <input
+                                name="emergenciaNumero"
                                 id="emergency-number"
                                 className="form__field-input"
                                 placeholder="4491234567"
@@ -171,22 +262,39 @@ export const MemberForm = ({ mode }) => {
                             className="form__field-input"
                             options={options}
                             defaultValue={options[0]}
-                            value={options.find(opt => opt.value == formData.plan)}
+                            value={options.find(opt => opt.value == formData.planId)}
                             onChange={handleSelectChange}
                         />
                     </div>
                 </form>
             </section>
             <div className="buttons">
-                <button className="buttons__button-send">
+                <button
+                    className="buttons__button-send"
+                    type="button"
+                    onClick={handleSaveClick}
+                >
                     <span className="material-symbols-outlined buttons__button-icon">
                         save
                     </span>
                     Guardar Miembro
                 </button>
-                <button className="buttons__button-cancel">
+                <button
+                    className="buttons__button-cancel"
+                    type="button"
+                    onClick={handleCancelClick}
+                >
                     Cancelar
                 </button>
+                {mode === "edit" && (
+                    <button
+                        className="buttons__button-delete"
+                        type="button"
+                        onClick={handleDeleteButton}
+                    >
+                        Borrar miembro
+                    </button>
+                )}
             </div>
         </>
 

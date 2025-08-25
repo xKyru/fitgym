@@ -11,16 +11,17 @@ const options = [
 export const MembersView = () => {
     return (
         <>
-            <Filter
+            {/* <Filter
                 SearchBarPlaceholder={"Buscar Miembros..."}
                 options={options}
-            ></Filter>
+            ></Filter> */}
             <section className="section">
             <h2 className="section__title">Lista de miembros</h2>
             <h3 className="section__subtitle">Todos los miembros registrados en el gimnasio</h3>
             <MembersList
                 viewMember={true}
                 editMember={true}
+                deleteMember={true}
             ></MembersList>
             </section>
         </>

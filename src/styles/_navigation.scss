@@ -1,34 +1,41 @@
 @use 'variables' as *;
-.navigation{
+
+.navigation {
     padding: 10px 20px;
     border-bottom: 1px solid $colorBorder;
     display: flex;
     align-items: center;
 }
 
-.navigation__toggle{
+.navigation__toggle {
     margin-right: 15px;
-    &-link{
+
+    &-link {
         color: $colorLightText;
         transition: 180ms ease;
         display: flex;
         align-items: center;
         text-decoration: none;
-        &:hover{
+
+        &:hover {
             color: $colorDarkText;
         }
     }
-    &-icon{
+
+    &-icon {
         font-size: 20px;
         padding: 5px;
     }
 }
 
-.navigation__search{
+.navigation__search {
     position: relative;
     width: 100%;
     max-width: 350px;
-    &-icon{
+    display: flex;
+    align-items: center;
+
+    &-icon {
         position: absolute;
         left: 10px;
         top: 50%;
@@ -36,29 +43,52 @@
         color: $colorLightText;
         pointer-events: none;
         font-size: 20px;
-        
+
     }
-    &-input{
+
+    &-input {
         padding: 10px 10px 10px 48px;
         border-radius: 5px;
         border: 1px solid $colorBorder;
         width: 100%;
     }
+
+    &-submit {
+        background: #09090B;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        border: none;
+        padding: 8px 30px;
+        height: 38px;
+        font-size: 14px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: ease 180ms;
+        text-decoration: none;
+        margin-left: 10px;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
 }
 
-.navigation__icons{
+.navigation__icons {
     margin-left: auto;
-    &-link{
+
+    &-link {
         color: $colorLightText;
         text-decoration: none;
         transition: 180ms ease;
         display: flex;
         align-items: center;
-        &:hover{
+
+        &:hover {
             color: $colorDarkText;
         }
     }
-    &-icon{
+
+    &-icon {
         font-size: 20px;
         padding: 5px;
     }

@@ -2,9 +2,9 @@ import useFetch from "../hooks/useFetch"
 
 export const PaymentsList = () => {
 
-    const { data: payment, loading: paymentsLoading, error: paymentsError } = useFetch('http://localhost:3001/payments');
-    const { data: members, loading: membersLoading, error: membersError } = useFetch('http://localhost:3001/members');
-    const { data: plans, loading: plansLoading, error: plansError } = useFetch('http://localhost:3001/plans');
+    const { data: payment, loading: paymentsLoading, error: paymentsError } = useFetch(`${import.meta.env.VITE_API_URL}/payments`);
+    const { data: members, loading: membersLoading, error: membersError } = useFetch(`${import.meta.env.VITE_API_URL}/members`);
+    const { data: plans, loading: plansLoading, error: plansError } = useFetch(`${import.meta.env.VITE_API_URL}/plans`);
 
     if (paymentsLoading || membersLoading || plansLoading) return <div>Cargando...</div>;
     if (paymentsError) return <div>Error: {paymentsError}</div>;
@@ -37,13 +37,13 @@ export const PaymentsList = () => {
                         const member = findMemberById(memberId);     
                         
                         
-                        const {nombre, plan} = member;
+                        const {nombre, planId} = member;
                         
                         return(
                     
                         <tr key={id} className="pagos-lista__table-tr">
                             <td>{nombre}</td>
-                            <td>{plans[plan-1].plan || plan}</td>
+                            <td>{plans[planId-1].name || planId}</td>
                             <td>{Intl.NumberFormat("en-EN", {style: "currency", currency: "USD"}).format(amount)}</td>
                             <td><span>{method}</span></td>
                             <td>{date}</td>
