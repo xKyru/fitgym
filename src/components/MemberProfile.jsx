@@ -30,7 +30,7 @@ export const MemberProfile = ({
           <h2>Información Personal</h2>
           <div className="profile__personal-card">
             <div className="profile__personal-profile">
-              <img className="profile__personal-image" src={profileImg} />
+              <img className="profile__personal-image" src="/img/profile.png" />
               <div className="profile__personal-name">
                 {nombre}
               </div>
